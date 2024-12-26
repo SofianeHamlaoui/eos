@@ -144,12 +144,6 @@ class PluginManager(Base):
         key = lambda plugin: plugin.priority
         for plugin in sorted(self.plugins, key=key):
 
-            # Version check
-            if self.symfony.version < plugin.requirements:
-                print()
-                self.log.info('%s plugin requires Symfony >= %s', plugin.name, plugin.requirements)
-                continue
-
             # Run
             try:
                 print()
