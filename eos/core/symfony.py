@@ -137,9 +137,9 @@ class Symfony(Base):
         env = ucfirst(self.environment)
         debug = 'Debug' if self.debug else ''
 
-        if int(self.version) <= '4.1':
+        if self.version <= '4.1':
             container = f'{root}{env}{debug}ProjectContainer'
-        elif int(self.version) < '4.5':
+        elif self.version < '4.5':
             container = f'{root}{cls}{env}{debug}Container'
         else:
             container = f'{cls}{env}{debug}Container'
